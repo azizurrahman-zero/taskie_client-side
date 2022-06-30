@@ -8,14 +8,14 @@ const Task = ({ task }) => {
       <tr className="bg-[#E5E5E5]">
         <th>
           <label>
-            <input type="checkbox" class="checkbox" />
+            <input type="checkbox" className="checkbox" />
           </label>
         </th>
         <td>
-          <div class="flex items-center space-x-3">
-            <div class="font-bold">
+          <div className="flex items-center space-x-3">
+            <div className="font-bold">
               {name}
-              <span class="badge font-normal ml-3 badge-ghost badge-sm">
+              <span className="badge font-normal ml-3 badge-ghost badge-sm">
                 {time}
               </span>
             </div>
@@ -23,7 +23,7 @@ const Task = ({ task }) => {
         </td>
         <td>{details}</td>
         <th>
-          <button class="btn btn-ghost btn-xs">details</button>
+          <button className="btn btn-ghost btn-xs">details</button>
         </th>
       </tr>
     </>

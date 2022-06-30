@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
+import AddTask from "./AddTask";
 import Loading from "./Shared/Loading";
 import Task from "./Task";
 
@@ -9,12 +10,7 @@ const Tasks = () => {
     isLoading,
     refetch,
   } = useQuery(["orders"], () =>
-    fetch("/tasks.json", {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => {
+    fetch("http://localhost:5000/tasks").then((res) => {
       return res.json();
     })
   );
@@ -24,11 +20,11 @@ const Tasks = () => {
   }
   return (
     <div className="py-10">
-      <h1 class="text-5xl pb-4 text-center uppercase font-bold text-[#6C5DD3]">
+      <h1 className="text-5xl pb-4 text-center uppercase font-bold text-[#6C5DD3]">
         Tasks
       </h1>
-      <div class="overflow-x-auto w-full">
-        <table class="table w-full">
+      <div className="overflow-x-auto w-full rounded-xl">
+        <table className="table w-full mb-40">
           <tbody>
             {tasks.map((task) => (
               <Task key={task._id} task={task} refetch={refetch}></Task>
@@ -36,6 +32,7 @@ const Tasks = () => {
           </tbody>
         </table>
       </div>
+      <AddTask />
     </div>
   );
 };
