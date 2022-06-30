@@ -1,7 +1,12 @@
-import React from "react";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import EditTaskModal from "./EditTaskModal";
 
-const Task = ({ task }) => {
-  const { name, details, time } = task;
+const Task = ({ task, refetch }) => {
+  const { _id, name, details, time } = task;
+
+  const [editTask, setEditTask] = useState(null);
 
   return (
     <>
@@ -23,9 +28,22 @@ const Task = ({ task }) => {
         </td>
         <td>{details}</td>
         <th>
-          <button className="btn btn-ghost btn-xs">details</button>
+          <label
+            onClick={() => setEditTask(_id)}
+            htmlFor="edit-task-modal"
+            className="btn modal-button text-white"
+          >
+            <FontAwesomeIcon className="text-xl" icon={faPenToSquare} />
+          </label>
         </th>
       </tr>
+      {editTask && (
+        <EditTaskModal
+          setEditTask={setEditTask}
+          task={task}
+          refetch={refetch}
+        />
+      )}
     </>
   );
 };

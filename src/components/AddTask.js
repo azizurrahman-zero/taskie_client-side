@@ -31,13 +31,15 @@ const AddTask = () => {
       });
   };
   return (
-    <div className="fixed bottom-0 pt-5 pb-10 pr-20 bg-[#E5E5E5] z-50 w-full flex flex-col items-center gap-3">
-      <h1 className="text-5xl uppercase font-bold text-[#6C5DD3]">Add Task</h1>
+    <div className="fixed bottom-0 py-8 pr-20 bg-[#E5E5E5] z-50 w-full flex justify-center gap-6 items-center">
+      <h2 className="font-bold text-neutral text-4xl tracking-widest uppercase">
+        Add Tasks
+      </h2>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
-            placeholder="Write task and press enter.."
+            placeholder="Write task name & press enter"
             className="input input-bordered w-96"
             {...register("name", {
               required: {
@@ -48,7 +50,7 @@ const AddTask = () => {
           />
           <label className="label py-0">
             {errors.name && (
-              <span className="label-text-alt text-error absolute bottom-5">
+              <span className="label-text-alt text-error absolute bottom-2.5">
                 {errors.name.message}
               </span>
             )}

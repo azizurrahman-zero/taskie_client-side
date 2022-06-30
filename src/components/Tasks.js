@@ -20,11 +20,11 @@ const Tasks = () => {
   }
   return (
     <div className="py-10">
-      <h1 className="text-5xl pb-4 text-center uppercase font-bold text-[#6C5DD3]">
+      <h2 className="mb-6 font-bold text-neutral text-4xl tracking-widest uppercase">
         Tasks
-      </h1>
+      </h2>
       <div className="overflow-x-auto w-full rounded-xl">
-        <table className="table w-full mb-40">
+        <table className="table w-full mb-20">
           <tbody>
             {tasks.map((task) => (
               <Task key={task._id} task={task} refetch={refetch}></Task>
