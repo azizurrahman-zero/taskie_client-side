@@ -32,7 +32,7 @@ const AddTask = () => {
       });
   };
   return (
-    <div className="fixed bottom-0 py-8 pr-20 bg-[#E5E5E5] z-50 w-full flex justify-center gap-6 items-center">
+    <div className="sticky bottom-0 py-8 pr-20 bg-[#E5E5E5] z-50 w-full flex justify-center gap-6 items-center">
       <h2 className="font-bold text-neutral text-4xl tracking-widest uppercase">
         Add Tasks
       </h2>

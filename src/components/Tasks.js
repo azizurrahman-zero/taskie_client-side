@@ -24,7 +24,7 @@ const Tasks = () => {
         Tasks
       </h2>
       <div className="overflow-x-auto w-full rounded-xl">
-        <table className="table w-full mb-20">
+        <table className="table w-full mb-3">
           <tbody>
             {tasks.map((task) => (
               <Task key={task._id} task={task} refetch={refetch}></Task>

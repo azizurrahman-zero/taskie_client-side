@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Shared/Navbar";
 import CompletedTasks from "./components/CompletedTasks";
 import CalendarComponent from "./components/CalendarComponent";
+import Footer from "./components/Shared/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/completed-tasks" element={<CompletedTasks />} />
         <Route path="/calendar" element={<CalendarComponent />} />
       </Routes>
+      <Footer />
       <ToastContainer />
     </div>
   );
