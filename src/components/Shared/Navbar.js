@@ -11,12 +11,12 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link to="/" className="font-medium">
+        <Link to="/completed-tasks" className="font-medium">
           Completed Task
         </Link>
       </li>
       <li>
-        <Link to="/" className="font-medium">
+        <Link to="/calendar" className="font-medium">
           Calendar
         </Link>
       </li>

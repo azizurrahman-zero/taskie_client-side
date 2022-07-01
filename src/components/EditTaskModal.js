@@ -7,11 +7,7 @@ import { toast } from "react-toastify";
 const EditTaskModal = ({ setEditTask, task, refetch }) => {
   const { _id, name, taskDetail } = task;
 
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     const taskDetails = {

@@ -14,6 +14,7 @@ const AddTask = () => {
     const name = data.name;
     const newTask = {
       name: name,
+      checked: false,
     };
 
     // send data to server

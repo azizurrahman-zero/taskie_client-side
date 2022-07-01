@@ -2,9 +2,45 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import EditTaskModal from "./EditTaskModal";
+import { toast } from "react-toastify";
 
-const Task = ({ task, refetch }) => {
-  const { _id, name, details, time } = task;
+const Task = ({ task, refetch, undo }) => {
+  const { _id, name, details, time, checked } = task;
+
+  const handleChange = (id) => {
+    let taskDetails;
+
+    if (checked) {
+      taskDetails = {
+        checked: false,
+      };
+    } else {
+      taskDetails = {
+        checked: true,
+      };
+    }
+
+    fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(taskDetails),
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        if (response.modifiedCount === 1) {
+          refetch();
+          if (undo) {
+            toast.error("Task mark uncompleted!");
+          } else {
+            toast.success("Task completed!");
+          }
+        } else {
+          toast.error("Error while updating");
+        }
+      });
+  };
 
   const [editTask, setEditTask] = useState(null);
 
@@ -13,7 +49,13 @@ const Task = ({ task, refetch }) => {
       <tr className="bg-[#E5E5E5]">
         <th>
           <label>
-            <input type="checkbox" className="checkbox" />
+            <input
+              value={_id}
+              type="checkbox"
+              className="checkbox"
+              onChange={() => handleChange(_id)}
+              checked={checked}
+            />
           </label>
         </th>
         <td>
