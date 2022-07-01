@@ -18,7 +18,7 @@ const CompletedTasks = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="py-10">
+    <div className="py-10  px-10 lg:px-0">
       <h2 className="mb-6 font-bold text-neutral text-4xl tracking-widest uppercase">
         Completed Tasks
       </h2>
