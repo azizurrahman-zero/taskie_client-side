@@ -22,8 +22,8 @@ const Tasks = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="bg-white rounded-xl p-10">
-      <h2 className="mb-6 font-bold text-neutral text-center text-5xl tracking-widest uppercase">
+    <div className="bg-white rounded-xl lg:p-10 p-5 mx-4 lg:mx-0">
+      <h2 className="lg:mb-6 mb-1 lg:mt-0 mt-5 font-bold text-neutral text-center lg:text-5xl text-3xl tracking-widest uppercase">
         Tasks
       </h2>
       {tasks.length > 0 ? (

@@ -37,8 +37,8 @@ const AddTask = ({ refetch }) => {
       });
   };
   return (
-    <div className="sticky bottom-0 py-8 lg:pr-20 bg-[#E5E5E5] z-50 w-full flex flex-col lg:flex-row justify-center gap-6 items-center">
-      <h2 className="font-bold text-neutral text-4xl tracking-widest uppercase">
+    <div className="sticky rounded-xl bottom-0 lg:py-8 py-4 lg:pr-20 bg-[#E5E5E5] z-50 w-full flex flex-col lg:flex-row justify-center gap-6 items-center">
+      <h2 className="font-bold text-neutral lg:text-4xl text-2xl tracking-widest uppercase">
         Add Tasks
       </h2>
       <div>
@@ -46,7 +46,7 @@ const AddTask = ({ refetch }) => {
           <input
             type="text"
             placeholder="Write task name & press enter"
-            className="input input-bordered w-96"
+            className="input input-bordered lg:w-96 w-64"
             {...register("title", {
               required: {
                 value: true,

@@ -8,6 +8,7 @@ import CompletedTasks from "./components/Tasks/CompletedTasks";
 import CalendarComponent from "./components/Calendar/CalendarComponent";
 import Footer from "./components/Shared/Footer";
 import NotFound from "./components/Shared/NotFound";
+import ToDo from "./components/ToDo/ToDo";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/to-do" element={<ToDo />} />
         <Route path="/completed-tasks" element={<CompletedTasks />} />
         <Route path="/calendar" element={<CalendarComponent />} />
         <Route path="*" element={<NotFound />} />

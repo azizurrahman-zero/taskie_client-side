@@ -5,20 +5,25 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { format } from "date-fns";
 
 const EditTaskModal = ({ setEditTask, task, refetch }) => {
+  const { _id, title, details } = task;
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const { _id, title, details } = task;
+
+  const start = format(startDate, "yyyy-MM-dd");
+  const end = format(endDate, "yyyy-MM-dd");
 
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     const taskDetails = {
-      name: data.name,
+      title: data.title,
       details: data.details,
-      start: startDate,
-      end: endDate,
+      date: end,
+      start: start,
+      end: end,
     };
     fetch(`https://taskie-zero.herokuapp.com/tasks/${_id}`, {
       method: "PUT",
@@ -39,7 +44,7 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
       });
   };
 
-  const [newName, setNewName] = useState(title);
+  const [newTitle, setNewTitle] = useState(title);
   const [newDetails, setNewDetails] = useState(details);
 
   return (
@@ -64,13 +69,13 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
                 </span>
               </label>
               <input
-                value={newName}
+                value={newTitle}
                 type="text"
                 placeholder="Task Name"
                 className="input focus:outline-offset-0 input-bordered text-base pb-0.5 font-medium"
-                {...register("name", {
+                {...register("title", {
                   onChange: (e) => {
-                    setNewName(e.target.value);
+                    setNewTitle(e.target.value);
                   },
                 })}
               />
@@ -104,8 +109,7 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
                 selectsStart
                 startDate={startDate}
                 endDate={endDate}
-                dateFormat="MM/dd/yyyy h:mm aa"
-                showTimeSelect
+                dateFormat="yyyy-MM-dd"
                 fixedHeight
               />
             </div>
@@ -121,8 +125,7 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
                 startDate={startDate}
                 endDate={endDate}
                 minDate={startDate}
-                dateFormat="MM/dd/yyyy h:mm aa"
-                showTimeSelect
+                dateFormat="yyyy-MM-dd"
                 fixedHeight
               />
             </div>

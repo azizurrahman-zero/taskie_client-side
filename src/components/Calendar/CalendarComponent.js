@@ -16,31 +16,9 @@ const CalendarComponent = () => {
     return <Loading></Loading>;
   }
 
-  const data = [
-    {
-      title: "Alejandra Cortez",
-      date: "2017-11-27",
-    },
-    {
-      _id: "62bf50fa283fbfd4d5e8cf53",
-      title: "Alyson Rojas",
-      date: "2022-07-02",
-    },
-    { title: "event 1", date: "2022-07-01" },
-    { title: "event 2", date: "2019-04-02" },
-    {
-      checked: false,
-      date: "2022-07-02",
-      title: "asavadvadsbadbv",
-      _id: "62bf52ae6cafb07b69e75a64",
-    },
-  ];
-
-  console.log(tasks);
-
   return (
-    <div className="bg-white rounded-xl p-10 my-5">
-      <h2 className="mb-7 font-bold text-neutral text-center text-5xl tracking-widest uppercase">
+    <div className="bg-white rounded-xl lg:p-10 p-5 my-5 lg:mx-0 mx-5">
+      <h2 className="lg:mb-6 mb-4 lg:mt-0 mt-5 font-bold text-neutral text-center lg:text-5xl text-3xl tracking-widest uppercase">
         Calendar
       </h2>
       <FullCalendar

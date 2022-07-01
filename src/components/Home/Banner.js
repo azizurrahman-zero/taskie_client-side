@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="hero h-96">
+    <div className="hero lg:h-96 h-full lg:py-0 py-20">
       <div className="hero-content text-center">
         <div className="max-w-3xl">
-          <h1 className="text-5xl font-bold text-[#000000cc]">
+          <h1 className="lg:text-5xl text-2xl font-bold text-[#000000cc]">
             Stay organized and connected
           </h1>
-          <p className="py-6 px-20 text-[#000000cc] text-xl">
+          <p className="lg:py-6 py-4 pb-8 lg:px-20 text-[#000000cc] lg:text-xl">
             Organize and assign tasks. With lists, teams see immediately what
             they need to do, which tasks are a priority, and when work is due.
           </p>
           <button className="btn">
-            <Link to="/log-in">Get Started</Link>
+            <Link to="/">Get Started</Link>
           </button>
         </div>
       </div>

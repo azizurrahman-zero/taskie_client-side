@@ -5,7 +5,7 @@ import logo from "../../media/logo.svg";
 const Footer = () => {
   return (
     <footer>
-      <div className="footer py-10 lg:w-11/12 mx-auto">
+      <div className="footer py-10 lg:w-11/12 mx-auto mt-5">
         <div className="flex flex-col lg:order-first order-last w-full mx-auto items-center lg:items-start">
           <Link to="/" className="flex gap-2">
             <img src={logo} alt="logo" />
@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="gap-5 flex flex-row mt-3">
               <Link
                 to={{
-                  pathname: "//twitter.com/exelcomputersys",
+                  pathname: "//twitter.com/thetaskapp",
                 }}
                 target="_blank"
               >
@@ -34,7 +34,8 @@ const Footer = () => {
               </Link>
               <Link
                 to={{
-                  pathname: "//www.youtube.com/user/exelerpsoftware",
+                  pathname:
+                    "//www.youtube.com/channel/UCuFZUeVqy1csYH7DvW--w6A",
                 }}
                 target="_blank"
               >
@@ -50,8 +51,7 @@ const Footer = () => {
               </Link>
               <Link
                 to={{
-                  pathname:
-                    "//www.facebook.com/Exel-Computer-Systems-plc-284360161881/",
+                  pathname: "//www.facebook.com/androidappskiller/",
                 }}
                 target="_blank"
               >
@@ -83,7 +83,7 @@ const Footer = () => {
         </div>
         <div className="w-full mx-auto justify-items-center lg:justify-items-start">
           <span className="footer-title">Pages</span>
-          <Link to="/">
+          <Link to="/to-do">
             <button className="btn-link text-base text-black font-medium">
               To-do
             </button>

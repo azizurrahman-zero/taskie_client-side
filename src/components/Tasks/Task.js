@@ -57,7 +57,7 @@ const Task = ({ task, refetch, undo, setEditTask }) => {
         </th>
         <td>
           <div className="flex items-center space-x-3">
-            <div className="font-bold text-lg">
+            <div className="font-bold lg:text-lg">
               {title}
               <span className="badge font-normal ml-3 badge-ghost badge-sm">
                 {date}
@@ -65,7 +65,7 @@ const Task = ({ task, refetch, undo, setEditTask }) => {
             </div>
           </div>
         </td>
-        <td className="font-medium">{details}</td>
+        <td className="lg:font-medium">{details}</td>
         <th>
           <label
             onClick={() => setEditTask(task)}

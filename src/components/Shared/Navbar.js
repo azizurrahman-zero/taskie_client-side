@@ -6,7 +6,7 @@ const Navbar = () => {
   const menu = (
     <>
       <li>
-        <Link to="/" className="font-medium">
+        <Link to="/to-do" className="font-medium">
           To-Do
         </Link>
       </li>
@@ -51,8 +51,8 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="flex gap-2">
-            <img src={logo} alt="logo" />
-            <span className="font-extrabold text-4xl">Taskie</span>
+            <img src={logo} alt="logo" className="w-8 lg:w-full" />
+            <span className="font-extrabold lg:text-4xl text-2xl">Taskie</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
