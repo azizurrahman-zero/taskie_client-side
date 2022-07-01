@@ -10,7 +10,7 @@ import Footer from "./components/Shared/Footer";
 
 function App() {
   return (
-    <div className="bg-[#E5E5E5] lg:px-10">
+    <div className="bg-[#FFC700] lg:px-10">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
