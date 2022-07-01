@@ -5,14 +5,14 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const EditTaskModal = ({ setEditTask, task, refetch }) => {
-  const { _id, name, taskDetail } = task;
+  const { _id, name, details } = task;
 
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     const taskDetails = {
       name: data.name,
-      taskDetail: data.taskDetail,
+      details: data.details,
     };
     fetch(`https://taskie-zero.herokuapp.com/tasks/${_id}`, {
       method: "PUT",
@@ -34,7 +34,7 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
   };
 
   const [newName, setNewName] = useState(name);
-  const [newDetail, setNewDetail] = useState(taskDetail);
+  const [newDetails, setNewDetails] = useState(details);
 
   return (
     <div>
@@ -65,14 +65,14 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
               />
             </div>
             <div className="form-control">
-              <input
-                value={newDetail}
+              <textarea
+                value={newDetails}
                 type="text"
                 placeholder="Task Details"
-                className="input focus:outline-offset-0 input-bordered text-base pb-0.5 font-medium"
-                {...register("task-detail", {
+                className="textarea focus:outline-offset-0 textarea-bordered text-base pb-0.5 font-medium"
+                {...register("details", {
                   onChange: (e) => {
-                    setNewDetail(e.target.value);
+                    setNewDetails(e.target.value);
                   },
                 })}
               />

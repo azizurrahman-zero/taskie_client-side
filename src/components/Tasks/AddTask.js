@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
-const AddTask = () => {
+const AddTask = ({ refetch }) => {
   const {
     register,
     reset,
@@ -15,6 +15,7 @@ const AddTask = () => {
     const newTask = {
       name: name,
       checked: false,
+      time: "Not fixed schedule",
     };
 
     // send data to server
@@ -28,6 +29,7 @@ const AddTask = () => {
       .then((res) => res.json())
       .then(() => {
         toast.success(`${name} successfully added.`);
+        refetch();
         reset();
       });
   };

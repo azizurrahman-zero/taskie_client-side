@@ -1,10 +1,9 @@
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import EditTaskModal from "./EditTaskModal";
+import React from "react";
 import { toast } from "react-toastify";
 
-const Task = ({ task, refetch, undo }) => {
+const Task = ({ task, refetch, undo, setEditTask }) => {
   const { _id, name, details, time, checked } = task;
 
   const handleChange = (id) => {
@@ -42,12 +41,10 @@ const Task = ({ task, refetch, undo }) => {
       });
   };
 
-  const [editTask, setEditTask] = useState(null);
-
   return (
     <>
       <tr className="bg-[#E5E5E5]">
-        <th>
+        <th className="pt-6">
           <label>
             <input
               value={_id}
@@ -60,7 +57,7 @@ const Task = ({ task, refetch, undo }) => {
         </th>
         <td>
           <div className="flex items-center space-x-3">
-            <div className="font-bold">
+            <div className="font-bold text-lg">
               {name}
               <span className="badge font-normal ml-3 badge-ghost badge-sm">
                 {time}
@@ -68,10 +65,10 @@ const Task = ({ task, refetch, undo }) => {
             </div>
           </div>
         </td>
-        <td>{details}</td>
+        <td className="font-medium">{details}</td>
         <th>
           <label
-            onClick={() => setEditTask(_id)}
+            onClick={() => setEditTask(task)}
             htmlFor="edit-task-modal"
             className="btn modal-button text-white"
           >
@@ -79,13 +76,6 @@ const Task = ({ task, refetch, undo }) => {
           </label>
         </th>
       </tr>
-      {editTask && (
-        <EditTaskModal
-          setEditTask={setEditTask}
-          task={task}
-          refetch={refetch}
-        />
-      )}
     </>
   );
 };
