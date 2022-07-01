@@ -1,11 +1,11 @@
 import "./App.css";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Shared/Navbar";
-import CompletedTasks from "./components/CompletedTasks";
-import CalendarComponent from "./components/CalendarComponent";
+import CompletedTasks from "./components/Tasks/CompletedTasks";
+import CalendarComponent from "./components/Calendar/CalendarComponent";
 import Footer from "./components/Shared/Footer";
 
 function App() {

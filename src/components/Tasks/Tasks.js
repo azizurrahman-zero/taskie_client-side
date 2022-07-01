@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import AddTask from "./AddTask";
-import Loading from "./Shared/Loading";
+import Loading from "../Shared/Loading";
 import Task from "./Task";
 
 const Tasks = () => {

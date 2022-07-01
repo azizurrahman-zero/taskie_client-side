@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
-import Loading from "./Shared/Loading";
+import Loading from "../Shared/Loading";
 import Task from "./Task";
 
 const CompletedTasks = () => {
