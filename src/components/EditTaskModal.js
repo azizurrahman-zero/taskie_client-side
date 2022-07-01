@@ -14,7 +14,7 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
       name: data.name,
       taskDetail: data.taskDetail,
     };
-    fetch(`http://localhost:5000/tasks/${_id}`, {
+    fetch(`https://taskie-zero.herokuapp.com/tasks/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

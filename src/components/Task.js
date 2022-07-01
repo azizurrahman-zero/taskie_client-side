@@ -20,7 +20,7 @@ const Task = ({ task, refetch, undo }) => {
       };
     }
 
-    fetch(`http://localhost:5000/tasks/${id}`, {
+    fetch(`https://taskie-zero.herokuapp.com/tasks/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

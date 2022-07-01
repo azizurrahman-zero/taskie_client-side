@@ -9,7 +9,7 @@ const CompletedTasks = () => {
     isLoading,
     refetch,
   } = useQuery(["tasks"], () =>
-    fetch("http://localhost:5000/completed-tasks").then((res) => {
+    fetch("https://taskie-zero.herokuapp.com/completed-tasks").then((res) => {
       return res.json();
     })
   );

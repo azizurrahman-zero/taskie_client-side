@@ -18,7 +18,7 @@ const AddTask = () => {
     };
 
     // send data to server
-    fetch("http://localhost:5000/tasks", {
+    fetch("https://taskie-zero.herokuapp.com/tasks", {
       method: "POST",
       headers: {
         "content-type": "application/json",
