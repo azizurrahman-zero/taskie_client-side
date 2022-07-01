@@ -1,31 +1,52 @@
-import format from "date-fns/format";
-import startOfWeek from "date-fns/startOfWeek";
-import getDay from "date-fns/getDay";
-import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import parse from "date-fns/parse";
 import React from "react";
-
-const locales = {
-  "en-US": require("date-fns/locale/en-US"),
-};
-
-const localizer = dateFnsLocalizer({
-  format,
-  parse,
-  startOfWeek,
-  getDay,
-  locales,
-});
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import Loading from "../Shared/Loading";
+import { useQuery } from "react-query";
 
 const CalendarComponent = () => {
+  const { data: tasks, isLoading } = useQuery(["tasks"], () =>
+    fetch("https://taskie-zero.herokuapp.com/tasks").then((res) => {
+      return res.json();
+    })
+  );
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+
+  const data = [
+    {
+      title: "Alejandra Cortez",
+      date: "2017-11-27",
+    },
+    {
+      _id: "62bf50fa283fbfd4d5e8cf53",
+      title: "Alyson Rojas",
+      date: "2022-07-02",
+    },
+    { title: "event 1", date: "2022-07-01" },
+    { title: "event 2", date: "2019-04-02" },
+    {
+      checked: false,
+      date: "2022-07-02",
+      title: "asavadvadsbadbv",
+      _id: "62bf52ae6cafb07b69e75a64",
+    },
+  ];
+
+  console.log(tasks);
+
   return (
-    <div>
-      <Calendar
-        localizer={localizer}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: 500, margin: "50px" }}
+    <div className="bg-white rounded-xl p-10 my-5">
+      <h2 className="mb-7 font-bold text-neutral text-center text-5xl tracking-widest uppercase">
+        Calendar
+      </h2>
+      <FullCalendar
+        plugins={[dayGridPlugin, interactionPlugin]}
+        initialView="dayGridMonth"
+        events={tasks}
       />
     </div>
   );

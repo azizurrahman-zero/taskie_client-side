@@ -4,6 +4,7 @@ import AddTask from "./AddTask";
 import Loading from "../Shared/Loading";
 import Task from "./Task";
 import EditTaskModal from "./EditTaskModal";
+import NoItems from "../Shared/NoItems";
 
 const Tasks = () => {
   const [editTask, setEditTask] = useState(null);
@@ -25,20 +26,24 @@ const Tasks = () => {
       <h2 className="mb-6 font-bold text-neutral text-center text-5xl tracking-widest uppercase">
         Tasks
       </h2>
-      <div className="overflow-x-auto w-full">
-        <table className="table w-full mb-3">
-          <tbody>
-            {tasks.map((task) => (
-              <Task
-                key={task._id}
-                task={task}
-                refetch={refetch}
-                setEditTask={setEditTask}
-              ></Task>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {tasks.length > 0 ? (
+        <div className="overflow-x-auto w-full">
+          <table className="table w-full mb-3">
+            <tbody>
+              {tasks.map((task) => (
+                <Task
+                  key={task._id}
+                  task={task}
+                  refetch={refetch}
+                  setEditTask={setEditTask}
+                ></Task>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <NoItems />
+      )}
       {editTask && (
         <EditTaskModal
           setEditTask={setEditTask}

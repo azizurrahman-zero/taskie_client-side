@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading";
+import NoItems from "../Shared/NoItems";
 import Task from "./Task";
 
 const CompletedTasks = () => {
@@ -18,19 +19,23 @@ const CompletedTasks = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="py-10  px-10 lg:px-0">
-      <h2 className="mb-6 font-bold text-neutral text-4xl tracking-widest uppercase">
+    <div className="bg-white rounded-xl p-10 my-5">
+      <h2 className="mb-6 font-bold text-neutral text-center text-5xl tracking-widest uppercase">
         Completed Tasks
       </h2>
-      <div className="overflow-x-auto w-full rounded-xl">
-        <table className="table w-full mb-20">
-          <tbody>
-            {tasks.map((task) => (
-              <Task key={task._id} task={task} refetch={refetch} undo></Task>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {tasks.length > 0 ? (
+        <div className="overflow-x-auto w-full rounded-xl">
+          <table className="table w-full mb-20">
+            <tbody>
+              {tasks.map((task) => (
+                <Task key={task._id} task={task} refetch={refetch} undo></Task>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <NoItems />
+      )}
     </div>
   );
 };

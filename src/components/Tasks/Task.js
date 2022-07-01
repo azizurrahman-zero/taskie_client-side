@@ -4,7 +4,7 @@ import React from "react";
 import { toast } from "react-toastify";
 
 const Task = ({ task, refetch, undo, setEditTask }) => {
-  const { _id, name, details, time, checked } = task;
+  const { _id, title, details, date, checked } = task;
 
   const handleChange = (id) => {
     let taskDetails;
@@ -58,9 +58,9 @@ const Task = ({ task, refetch, undo, setEditTask }) => {
         <td>
           <div className="flex items-center space-x-3">
             <div className="font-bold text-lg">
-              {name}
+              {title}
               <span className="badge font-normal ml-3 badge-ghost badge-sm">
-                {time}
+                {date}
               </span>
             </div>
           </div>

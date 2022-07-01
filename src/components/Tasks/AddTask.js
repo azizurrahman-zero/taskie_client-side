@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { format } from "date-fns";
 
 const AddTask = ({ refetch }) => {
   const {
@@ -10,12 +11,14 @@ const AddTask = ({ refetch }) => {
     handleSubmit,
   } = useForm();
 
+  const date = format(new Date(), "yyyy-MM-dd");
+
   const onSubmit = (data) => {
-    const name = data.name;
+    const title = data.title;
     const newTask = {
-      name: name,
+      title: title,
       checked: false,
-      time: "Not fixed schedule",
+      date: date,
     };
 
     // send data to server
@@ -28,7 +31,7 @@ const AddTask = ({ refetch }) => {
     })
       .then((res) => res.json())
       .then(() => {
-        toast.success(`${name} successfully added.`);
+        toast.success(`${title} successfully added.`);
         refetch();
         reset();
       });
@@ -44,7 +47,7 @@ const AddTask = ({ refetch }) => {
             type="text"
             placeholder="Write task name & press enter"
             className="input input-bordered w-96"
-            {...register("name", {
+            {...register("title", {
               required: {
                 value: true,
                 message: "*Please enter a task name to add",
@@ -52,9 +55,9 @@ const AddTask = ({ refetch }) => {
             })}
           />
           <label className="label py-0">
-            {errors.name && (
+            {errors.title && (
               <span className="label-text-alt text-error absolute bottom-2.5">
-                {errors.name.message}
+                {errors.title.message}
               </span>
             )}
           </label>

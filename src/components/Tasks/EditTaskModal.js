@@ -3,9 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const EditTaskModal = ({ setEditTask, task, refetch }) => {
-  const { _id, name, details } = task;
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const { _id, title, details } = task;
 
   const { register, handleSubmit } = useForm();
 
@@ -13,6 +17,8 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
     const taskDetails = {
       name: data.name,
       details: data.details,
+      start: startDate,
+      end: endDate,
     };
     fetch(`https://taskie-zero.herokuapp.com/tasks/${_id}`, {
       method: "PUT",
@@ -33,7 +39,7 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
       });
   };
 
-  const [newName, setNewName] = useState(name);
+  const [newName, setNewName] = useState(title);
   const [newDetails, setNewDetails] = useState(details);
 
   return (
@@ -51,7 +57,12 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
             Edit Task
           </h3>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control mb-3.5">
+            <div className="form-control">
+              <label className="label pb-0.5">
+                <span className="text-xs font-medium text-neutral">
+                  Task Name
+                </span>
+              </label>
               <input
                 value={newName}
                 type="text"
@@ -65,6 +76,11 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
               />
             </div>
             <div className="form-control">
+              <label className="label pb-0.5">
+                <span className="text-xs font-medium text-neutral">
+                  Task Details
+                </span>
+              </label>
               <textarea
                 value={newDetails}
                 type="text"
@@ -75,6 +91,39 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
                     setNewDetails(e.target.value);
                   },
                 })}
+              />
+            </div>
+            <div className="form-control">
+              <label className="label pb-0.5">
+                <span className="text-xs font-medium text-neutral">Start</span>
+              </label>
+              <DatePicker
+                className="input focus:outline-offset-0 input-bordered text-base pb-0.5 font-medium w-full"
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                selectsStart
+                startDate={startDate}
+                endDate={endDate}
+                dateFormat="MM/dd/yyyy h:mm aa"
+                showTimeSelect
+                fixedHeight
+              />
+            </div>
+            <div className="form-control">
+              <label className="label pb-0.5">
+                <span className="text-xs font-medium text-neutral">End</span>
+              </label>
+              <DatePicker
+                className="input focus:outline-offset-0 input-bordered text-base pb-0.5 font-medium w-full"
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+                selectsEnd
+                startDate={startDate}
+                endDate={endDate}
+                minDate={startDate}
+                dateFormat="MM/dd/yyyy h:mm aa"
+                showTimeSelect
+                fixedHeight
               />
             </div>
             <div className="form-control mt-6">

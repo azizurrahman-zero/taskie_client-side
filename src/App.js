@@ -7,6 +7,7 @@ import Navbar from "./components/Shared/Navbar";
 import CompletedTasks from "./components/Tasks/CompletedTasks";
 import CalendarComponent from "./components/Calendar/CalendarComponent";
 import Footer from "./components/Shared/Footer";
+import NotFound from "./components/Shared/NotFound";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/completed-tasks" element={<CompletedTasks />} />
         <Route path="/calendar" element={<CalendarComponent />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <ToastContainer />

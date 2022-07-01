@@ -126,3 +126,9 @@
         transform: rotate(360deg);
     }
 }
+
+.react-datepicker-popper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
