@@ -25,7 +25,7 @@ const EditTaskModal = ({ setEditTask, task, refetch }) => {
       start: start,
       end: end,
     };
-    fetch(`https://taskie-zero.herokuapp.com/tasks/${_id}`, {
+    fetch(`https://taskie-l5hw.onrender.com/tasks/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

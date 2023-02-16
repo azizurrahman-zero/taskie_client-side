@@ -13,7 +13,7 @@ const Tasks = () => {
     isLoading,
     refetch,
   } = useQuery(["tasks"], () =>
-    fetch("https://taskie-zero.herokuapp.com/tasks").then((res) => {
+    fetch("https://taskie-l5hw.onrender.com/tasks").then((res) => {
       return res.json();
     })
   );

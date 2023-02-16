@@ -19,7 +19,7 @@ const Task = ({ task, refetch, undo, setEditTask }) => {
       };
     }
 
-    fetch(`https://taskie-zero.herokuapp.com/tasks/${id}`, {
+    fetch(`https://taskie-l5hw.onrender.com/tasks/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

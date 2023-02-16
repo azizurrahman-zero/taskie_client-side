@@ -22,7 +22,7 @@ const AddTask = ({ refetch }) => {
     };
 
     // send data to server
-    fetch("https://taskie-zero.herokuapp.com/tasks", {
+    fetch("https://taskie-l5hw.onrender.com/tasks", {
       method: "POST",
       headers: {
         "content-type": "application/json",
